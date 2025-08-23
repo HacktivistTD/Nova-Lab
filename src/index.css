@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SE Company Design System - Calm, Professional, Modern */
+
+@layer base {
+  :root {
+    /* Light mode - Clean, calm background */
+    --background: 220 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 220 20% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 220 20% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary - Calm Cyan/Teal for CTAs and accents */
+    --primary: 192 84% 56%;
+    --primary-foreground: 220 20% 98%;
+
+    /* Secondary - Professional Navy */
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 220 20% 98%;
+
+    --muted: 220 20% 95%;
+    --muted-foreground: 222 20% 45%;
+
+    /* Accent - Soft Violet for highlights */
+    --accent: 258 84% 68%;
+    --accent-foreground: 220 20% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 20% 98%;
+
+    --border: 220 20% 92%;
+    --input: 220 20% 96%;
+    --ring: 192 84% 56%;
+
+    --radius: 1rem;
+
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(192 84% 56%), hsl(192 84% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(222 47% 11%), hsl(222 47% 18%));
+    --gradient-accent: linear-gradient(135deg, hsl(258 84% 68%), hsl(258 84% 75%));
+
+    /* Shadows for depth */
+    --shadow-soft: 0 2px 8px -2px hsl(222 47% 11% / 0.1);
+    --shadow-medium: 0 4px 16px -4px hsl(222 47% 11% / 0.15);
+    --shadow-large: 0 8px 32px -8px hsl(222 47% 11% / 0.2);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - Deep navy background */
+    --background: 222 47% 6%;
+    --foreground: 220 20% 92%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 220 20% 92%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 220 20% 92%;
+
+    /* Primary - Bright cyan for dark mode contrast */
+    --primary: 192 84% 56%;
+    --primary-foreground: 222 47% 6%;
+
+    /* Secondary - Lighter navy for cards */
+    --secondary: 222 47% 12%;
+    --secondary-foreground: 220 20% 92%;
+
+    --muted: 222 47% 10%;
+    --muted-foreground: 220 20% 65%;
+
+    /* Accent - Vibrant violet for dark mode */
+    --accent: 258 84% 70%;
+    --accent-foreground: 222 47% 6%;
+
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 220 20% 98%;
+
+    --border: 222 47% 15%;
+    --input: 222 47% 12%;
+    --ring: 192 84% 56%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+    transition: var(--transition-smooth);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sora;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Button hover effects */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-2xl font-medium;
+    @apply hover:bg-primary/90 transition-all duration-300;
+    @apply shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-2xl font-medium;
+    @apply hover:bg-secondary/90 transition-all duration-300;
+    @apply shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary px-6 py-3 rounded-2xl font-medium;
+    @apply hover:bg-primary hover:text-primary-foreground transition-all duration-300;
+    @apply shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  /* Card effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Container max-width */
+  .container-width {
+    @apply max-w-7xl mx-auto;
+  }
+}

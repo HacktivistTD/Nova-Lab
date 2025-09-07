@@ -16,20 +16,48 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Update active section based on scroll position
+      const sections = navLinks.map(link => link.href.substring(1));
+      const current = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      
+      if (current) {
+        setActiveSection(current);
+      }
     };
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
+    const sectionId = href.replace('#', '');
+    const element = document.getElementById(sectionId);
+    
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80; // Adjust this value based on your navbar height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
       setIsOpen(false);
+      setActiveSection(sectionId);
     }
   };
 
@@ -46,14 +74,16 @@ export function Navbar() {
       <div className="container-width">
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
-          <motion.div 
-            className="flex items-center space-x-2"
+          <motion.div
             whileHover={{ scale: 1.05 }}
+            onClick={() => scrollToSection('#home')}
+            className="cursor-pointer"
           >
-            <Code2 className="h-8 w-8 text-primary" />
-            <span className="font-sora font-bold text-xl text-foreground">
-              CodeCraft
-            </span>
+            <img
+              src="/NovaLabs.svg"
+              className='h-10'
+              alt="Nova Labs Logo"
+            />
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -62,10 +92,14 @@ export function Navbar() {
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium relative group"
+                className={`text-foreground transition-colors duration-200 font-medium relative group
+                  ${activeSection === link.href.substring(1) ? 'text-primary' : 'hover:text-primary'}`}
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                <span 
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300
+                    ${activeSection === link.href.substring(1) ? 'w-full' : 'w-0 group-hover:w-full'}`} 
+                />
               </button>
             ))}
             <ThemeToggle />
@@ -103,7 +137,8 @@ export function Navbar() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     onClick={() => scrollToSection(link.href)}
-                    className="block w-full text-left py-2 text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                    className={`block w-full text-left py-2 transition-colors duration-200 font-medium
+                      ${activeSection === link.href.substring(1) ? 'text-primary' : 'text-foreground hover:text-primary'}`}
                   >
                     {link.name}
                   </motion.button>

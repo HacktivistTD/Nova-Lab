@@ -55,7 +55,7 @@ export function Footer() {
               >
                 <div className="flex items-center space-x-2 mb-4">
                   <Code2 className="h-8 w-8 text-primary" />
-                  <span className="font-sora font-bold text-xl">CodeCraft</span>
+                  <span className="font-sora font-bold text-xl">Nova Lab</span>
                 </div>
                 <p className="text-secondary-foreground/80 leading-relaxed">
                   Crafting innovative software solutions that empower businesses 
@@ -147,7 +147,7 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-secondary-foreground/80 text-sm">
-              © {currentYear} CodeCraft. All rights reserved.
+              © {currentYear} Nova Labs. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm text-secondary-foreground/80">
               <a href="#" className="hover:text-primary transition-colors">

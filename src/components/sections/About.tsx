@@ -52,7 +52,7 @@ export function About() {
             <h3 className="text-3xl font-bold mb-6">Our Story</h3>
             <div className="space-y-4 text-lg text-muted-foreground">
               <p>
-                Founded in 2019, CodeCraft emerged from a simple belief: that great software
+                Founded in 2025, Nova Labs emerged from a simple belief: that great software
                 can transform businesses and improve lives. What started as a small team of
                 passionate developers has grown into a full-service software engineering company.
               </p>

@@ -1,50 +1,5 @@
 import { motion } from 'framer-motion';
-import { Globe, Smartphone, Cloud, Brain, Code, Database } from 'lucide-react';
-
-const services = [
-  {
-    icon: Globe,
-    title: 'Web Development',
-    description: 'Modern, responsive web applications built with cutting-edge technologies like React, Vue, and Angular.',
-    features: ['Responsive Design', 'SEO Optimized', 'Performance Focused', 'Modern Frameworks'],
-    gradient: 'from-blue-500 to-cyan-500',
-  },
-  {
-    icon: Smartphone,
-    title: 'Mobile Apps',
-    description: 'Native and cross-platform mobile applications that deliver exceptional user experiences.',
-    features: ['iOS & Android', 'React Native', 'Flutter', 'App Store Optimization'],
-    gradient: 'from-purple-500 to-pink-500',
-  },
-  {
-    icon: Cloud,
-    title: 'Cloud Solutions',
-    description: 'Scalable cloud infrastructure and DevOps solutions for modern businesses.',
-    features: ['AWS & Azure', 'Docker & Kubernetes', 'CI/CD Pipelines', 'Monitoring & Scaling'],
-    gradient: 'from-green-500 to-teal-500',
-  },
-  {
-    icon: Brain,
-    title: 'AI & Machine Learning',
-    description: 'Intelligent solutions powered by machine learning and artificial intelligence.',
-    features: ['Data Analytics', 'Predictive Models', 'NLP Solutions', 'Computer Vision'],
-    gradient: 'from-orange-500 to-red-500',
-  },
-  {
-    icon: Code,
-    title: 'Custom Software',
-    description: 'Tailored software solutions designed specifically for your business needs.',
-    features: ['Business Analysis', 'Custom Development', 'Legacy Modernization', 'Integration'],
-    gradient: 'from-indigo-500 to-purple-500',
-  },
-  {
-    icon: Database,
-    title: 'Data Engineering',
-    description: 'Robust data pipelines and analytics solutions to unlock insights from your data.',
-    features: ['Data Warehousing', 'ETL Pipelines', 'Real-time Analytics', 'Business Intelligence'],
-    gradient: 'from-cyan-500 to-blue-500',
-  },
-];
+import { services } from "../../data/servicesData";
 
 export function Services() {
   return (

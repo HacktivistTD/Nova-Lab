@@ -20,8 +20,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: 'Email',
-    value: 'hello@codecraft.dev',
-    href: 'mailto:hello@codecraft.dev',
+    value: 'hello@Nova Labs.dev',
+    href: 'mailto:hello@Nova Labs.dev',
   },
   {
     icon: Phone,
@@ -105,7 +105,7 @@ export function Contact() {
             </div>
 
             <div className="p-6 rounded-3xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20">
-              <h4 className="text-lg font-semibold mb-3">Why Choose CodeCraft?</h4>
+              <h4 className="text-lg font-semibold mb-3">Why Choose Nova Labs?</h4>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center">
                   <div className="w-2 h-2 bg-primary rounded-full mr-3" />

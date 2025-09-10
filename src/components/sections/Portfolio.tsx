@@ -162,7 +162,7 @@ export function Portfolio() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center mt-16"
         >
-          <button className="btn-primary">
+          <button className="btn-primary w-full md:w-auto inline-flex items-center">
             View All Projects
             <ArrowRight className="ml-2 w-5 h-5" />
           </button>

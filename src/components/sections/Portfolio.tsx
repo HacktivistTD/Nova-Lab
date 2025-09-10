@@ -14,7 +14,7 @@ const projects = [
   {
     title: 'Saloon Mobile App',
     description: 'Cross-platform mobile app for saloon management with online booking.',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop',
+    image: 'https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg',
     tags: ['React Native', 'Firebase', 'WebRTC', 'Redux'],
     category: 'Mobile Development',
     link: '#',
@@ -50,7 +50,7 @@ const projects = [
   {
     title: 'IoT Monitoring System',
     description: 'Industrial IoT platform for real-time device monitoring and predictive maintenance.',
-    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=400&fit=crop',
+    image: 'https://images.pexels.com/photos/32894960/pexels-photo-32894960.jpeg',
     tags: ['Angular', 'MQTT', 'InfluxDB', 'Grafana'],
     category: 'IoT Developments',
     link: '#',

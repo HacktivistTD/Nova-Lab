@@ -55,7 +55,7 @@ export function Footer() {
               >
                 <div className="flex items-center space-x-2 mb-4">
                   <Code2 className="h-8 w-8 text-primary" />
-                  <span className="font-sora font-bold text-xl">Nova Lab</span>
+                  <span className="font-sora font-bold text-xl">Nova Labs</span>
                 </div>
                 <p className="text-secondary-foreground/80 leading-relaxed">
                   Crafting innovative software solutions that empower businesses 
@@ -150,13 +150,13 @@ export function Footer() {
               © {currentYear} Nova Labs. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm text-secondary-foreground/80">
-              <a href="#" className="hover:text-primary transition-colors">
+              <a href="/privacy-policy" className="hover:text-primary transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-primary transition-colors">
+              <a href="/terms-of-service" className="hover:text-primary transition-colors">
                 Terms of Service
               </a>
-              <a href="#" className="hover:text-primary transition-colors">
+              <a href="/cookie-policy" className="hover:text-primary transition-colors">
                 Cookie Policy
               </a>
             </div>

@@ -1,5 +1,5 @@
 // src/data/servicesData.ts
-import { Globe, Smartphone, Bot, Brain, Code, Clapperboard,FolderCode , Sprout , Hexagon , ServerCog} from "lucide-react";
+import { Globe, Smartphone, Bot, Brain, Code, Clapperboard,FolderCode , Sprout , Hexagon , ServerCog, Palette} from "lucide-react";
 
 export interface Service {
   icon: React.ElementType;
@@ -46,13 +46,19 @@ export const services: Service[] = [
   },
 
   {
-    icon: Brain,
-    title: "AI & Machine Learning",
+    icon: Palette, // you can use a design-related icon (e.g., Palette, Brush, or PenTool)
+    title: "Label & Business Card Designing",
     description:
-      "Intelligent solutions powered by machine learning and artificial intelligence.",
-    features: ["Data Analytics", "Predictive Models", "NLP Solutions", "Computer Vision"],
-    gradient: "from-orange-500 to-red-500",
+      "Creative and professional label and business card designs that reflect your brand identity and leave a lasting impression.",
+    features: [
+      "Custom Label Designs",
+      "Premium Business Card Layouts",
+      "Brand Identity & Color Matching",
+      "Print-Ready & Digital Formats"
+    ],
+    gradient: "from-pink-500 to-purple-500",
   },
+
   {
     icon: FolderCode,
     title: "Custom Software",

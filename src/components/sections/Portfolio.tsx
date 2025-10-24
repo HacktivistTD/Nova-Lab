@@ -2,24 +2,28 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 
 const projects = [
-  {
-    title: 'E-Commerce Platform',
-    description: 'Modern e-commerce platform with real-time inventory, payment integration, and admin dashboard.',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    category: 'Web Development',
-    link: '#',
-    github: '#',
-  },
-  {
-    title: 'Saloon Mobile App',
-    description: 'Cross-platform mobile app for saloon management with online booking.',
-    image: 'https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg',
-    tags: ['React Native', 'Firebase', 'WebRTC', 'Redux'],
-    category: 'Mobile Development',
-    link: '#',
-    github: '#',
-  },
+// 🌐 Web Development Project
+{
+  title: 'E-Commerce Platform',
+  description: 'A full-featured web-based e-commerce platform with real-time product management, secure payment integration using Stripe, and an intuitive admin dashboard for store management.',
+  image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
+  tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'TailwindCSS'],
+  category: 'Web Development',
+  link: '#', // live demo link (replace later)
+  github: '#', // GitHub repo (replace later)
+},
+
+// 📱 Mobile App Development Project
+{
+  title: 'Salon Booking App',
+  description: 'A cross-platform mobile application for salon appointment management. Supports real-time booking, staff scheduling, and in-app video consultation with customers.',
+  image: 'https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg',
+  tags: ['React Native', 'Firebase', 'WebRTC', 'Redux'],
+  category: 'Mobile App Development',
+  link: '#', // live demo link (replace later)
+  github: '#', // GitHub repo (replace later)
+},
+
   {
     title: 'AI Analytics Dashboard',
     description: 'Intelligent business analytics platform with machine learning insights and predictive modeling.',
@@ -38,15 +42,17 @@ const projects = [
     link: '#',
     github: '#',
   },
-  {
-    title: 'Fintech Trading Platform',
-    description: 'Real-time trading platform with advanced charting and portfolio management features.',
-    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop',
-    tags: ['Vue.js', 'WebSocket', 'MongoDB', 'Express'],
-    category: 'Web Development',
-    link: '#',
-    github: '#',
-  },
+ {
+  title: 'Personal & Business Portfolio Website',
+  description:
+    'A modern, responsive portfolio website designed to showcase personal achievements or business services. Includes dynamic sections for projects, testimonials, and contact forms.',
+  image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop',
+  tags: ['Next.js', 'React', 'TailwindCSS', 'Framer Motion'],
+  category: 'Web Development',
+  link: '#', // replace with live demo link later
+  github: '#', // replace with GitHub repository link later
+},
+
   {
     title: 'IoT Monitoring System',
     description: 'Industrial IoT platform for real-time device monitoring and predictive maintenance.',
@@ -105,13 +111,13 @@ export function Portfolio() {
                     >
                       <ExternalLink className="w-5 h-5" />
                     </a>
-                    <a
+                    {/* <a
                       href={project.github}
                       className="p-3 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/90 transition-colors"
                       aria-label="View source code"
                     >
                       <Github className="w-5 h-5" />
-                    </a>
+                    </a> */}
                   </div>
                 </div>
 

@@ -1,21 +1,21 @@
 import { motion } from 'framer-motion';
-import { Code2, Linkedin, Github, Twitter, Mail } from 'lucide-react';
+import { Code2, Linkedin, Facebook , MessageCircleMore, Mail } from 'lucide-react';
 
 const socialLinks = [
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Mail, href: 'mailto:hello@Nova Labs.dev', label: 'Email' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/nova-labs-lk/posts/?feedView=all', label: 'LinkedIn' },
+  { icon: Facebook , href: 'https://www.facebook.com/profile.php?id=61580152903393', label: 'Facebook ' },
+  { icon: MessageCircleMore, href: 'https://wa.me/94741438019', label: 'MessageCircleMore' },
+  { icon: Mail, href: 'mailto:novalabs-sl@outlook.com', label: 'Email' },
 ];
 
 const footerLinks = {
   Services: [
     'Web Development',
     'Mobile Apps',
-    'Cloud Solutions',
+    'CCTV Installation & Monitoring',
     'AI & Machine Learning',
     'Custom Software',
-    'Data Engineering',
+    'Green House Automation',
   ],
   Company: [
     'About Us',
@@ -54,12 +54,14 @@ export function Footer() {
                 className="mb-6"
               >
                 <div className="flex items-center space-x-2 mb-4">
-                  <Code2 className="h-8 w-8 text-primary" />
-                  <span className="font-sora font-bold text-xl">Nova Labs</span>
+                     <img
+              src="/NovaLabs.svg"
+              className='h-10 '
+              alt="Nova Labs Logo"
+            />
                 </div>
                 <p className="text-secondary-foreground/80 leading-relaxed">
-                  Crafting innovative software solutions that empower businesses 
-                  to thrive in the digital age. Your success is our mission.
+                  Elevate Your Digital Orbit.
                 </p>
               </motion.div>
 

@@ -32,13 +32,19 @@ export const services: Service[] = [
     gradient: "from-purple-500 to-pink-500",
   },
   {
-    icon: Bot,
-    title: "AI Chat Agents",
+    icon: Bot, // you can replace this with a camera icon if available, e.g., Camera or Shield
+    title: "CCTV Installation & Monitoring",
     description:
-      "Scalable cloud infrastructure and DevOps solutions for modern businesses.",
-    features: ["AWS & Azure", "Docker & Kubernetes", "CI/CD Pipelines", "Monitoring & Scaling"],
+      "Professional CCTV system setup, configuration, and remote monitoring solutions for homes and businesses. Ensures 24/7 security with smart camera integrations.",
+    features: [
+      "IP & Analog CCTV Installation",
+      "Remote Monitoring & Mobile Access",
+      "Cloud Storage & Backup Integration",
+      "Maintenance & Real-time Alerts"
+    ],
     gradient: "from-green-500 to-teal-500",
   },
+
   {
     icon: Brain,
     title: "AI & Machine Learning",

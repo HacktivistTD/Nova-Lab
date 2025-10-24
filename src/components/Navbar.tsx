@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Code2 } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ThemeToggle } from './ThemeToggle';
 import { Button } from '@/components/ui/button';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -17,33 +18,45 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      // Update active section based on scroll position
-      const sections = navLinks.map(link => link.href.substring(1));
-      const current = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+      // Only update active section if we're on the home page
+      if (location.pathname === '/') {
+        const sections = navLinks.map(link => link.href.substring(1));
+        const current = sections.find(section => {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            return rect.top <= 100 && rect.bottom >= 100;
+          }
+          return false;
+        });
+        
+        if (current) {
+          setActiveSection(current);
         }
-        return false;
-      });
-      
-      if (current) {
-        setActiveSection(current);
       }
     };
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const scrollToSection = (href: string) => {
     const sectionId = href.replace('#', '');
+    
+    // If we're not on the home page, navigate there first
+    if (location.pathname !== '/') {
+      navigate(`/${href}`);
+      return;
+    }
+    
+    // If we're on the home page, scroll to the section
     const element = document.getElementById(sectionId);
     
     if (element) {
@@ -58,6 +71,14 @@ export function Navbar() {
       
       setIsOpen(false);
       setActiveSection(sectionId);
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      scrollToSection('#home');
     }
   };
 
@@ -76,7 +97,7 @@ export function Navbar() {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            onClick={() => scrollToSection('#home')}
+            onClick={handleLogoClick}
             className="cursor-pointer"
           >
             <img
@@ -93,12 +114,12 @@ export function Navbar() {
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
                 className={`text-foreground transition-colors duration-200 font-medium relative group
-                  ${activeSection === link.href.substring(1) ? 'text-primary' : 'hover:text-primary'}`}
+                  ${activeSection === link.href.substring(1) && location.pathname === '/' ? 'text-primary' : 'hover:text-primary'}`}
               >
                 {link.name}
                 <span 
                   className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300
-                    ${activeSection === link.href.substring(1) ? 'w-full' : 'w-0 group-hover:w-full'}`} 
+                    ${activeSection === link.href.substring(1) && location.pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`} 
                 />
               </button>
             ))}
@@ -138,7 +159,7 @@ export function Navbar() {
                     transition={{ delay: index * 0.1 }}
                     onClick={() => scrollToSection(link.href)}
                     className={`block w-full text-left py-2 transition-colors duration-200 font-medium
-                      ${activeSection === link.href.substring(1) ? 'text-primary' : 'text-foreground hover:text-primary'}`}
+                      ${activeSection === link.href.substring(1) && location.pathname === '/' ? 'text-primary' : 'text-foreground hover:text-primary'}`}
                   >
                     {link.name}
                   </motion.button>
